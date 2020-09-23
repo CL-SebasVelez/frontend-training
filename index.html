@@ -5,13 +5,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="./styles/app.css">
 </head>
 
 <body>
-    <header></header>
-    <main></main>
-    <footer>Footer Content — Header.com 2020</footer>
+    <header class="header">
+        <img src="./images/logo.svg" alt="Page logo" id="page-logo" class="child">
+        <input class="menu-btn" type="checkbox" id="menu-btn" />
+        <label class="menu-icon m-elements-header" for="menu-btn"><span class="navicon"></span></label>
+        <ul class="menu child">
+            <li class="dropdown"><a href="#!">Services <span>&#8964;</span></a>
+                <ul class="nav-dropdown">
+                    <li><a href="#">&#127936; Sports</a></li>
+                    <li><a href="#">&#127918; Entertainment</a></li>
+                    <li><a href="#">&#128176; Economics</a></li>
+                    <li><a href="#">&#128241; Technology</a></li>
+                    <li><a href="#">&#129361; Health</a></li>
+                </ul>
+            </li>
+            <li><a href="#us">Editorial</a></li>
+            <li><a href="#guests">Contact us</a></li>
+        </ul>
+        </ul>
+        <div class="user-icon child">
+            <span class="user-info">JS</span>
+        </div>
+    </header>
+    <main>
+        <section id="news-container">
+            <app-alert>
+                <p slot="text">Welcome to the new look of News.com. Keep scrolling to discover interesting new features and news.</p>
+            </app-alert>
+            <h1>Top news</h1>
+            <div id="news"></div>
+        </section>
+    </main>
+    <script src="./scripts/config.js"></script>
+    <script src="./scripts/app.js"></script>
+    <script src="./scripts/components/alert.js"></script>
+    <script src="./scripts/components/news-card.js"></script>
 </body>
 
 </html>
