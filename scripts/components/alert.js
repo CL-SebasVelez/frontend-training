@@ -23,7 +23,7 @@ class Alert extends HTMLElement {
                     font-size: 14px;
                     letter-spacing: -0.08px;
                     line-height: 19px;
-                    padding: 0 273px 0 18px;
+                    padding: 0 18px;
                 }
                 #welcome-alert div{
                     height: 20px;
@@ -49,7 +49,6 @@ class Alert extends HTMLElement {
             this.$closeButton = this._root.querySelector('#close');
             this.$closeButton.addEventListener('click', (e) => {
                 e.preventDefault();
-                console.log(this.closeAlert());
                 this.closeAlert();
             });
         }

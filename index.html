@@ -37,16 +37,63 @@
     <main>
         <section id="news-container">
             <app-alert>
-                <p slot="text">Welcome to the new look of News.com. Keep scrolling to discover interesting new features and news.</p>
+                <p slot="text">Welcome to the new look of News.com. Keep scrolling to discover interesting new features
+                    and news.</p>
             </app-alert>
             <h1>Top news</h1>
             <div id="news"></div>
+            <a href="javascript:void(0)" class="btn btn-default a-self-center mt-5 mb-10" id="more-stories">View more
+                stories</a>
+        </section>
+        <section id="newsletter">
+            <div>
+                <h2>Subscribe to our newsletter</h2>
+                <p class="mt-5 mb-6">Subscribe to our newsletter to receive weekly digests of the vest ad most ground-breaking news. Also
+                    receive a discount o your monthly subscription.</p>
+                <a href="javascript:void(0)" class="btn btn-outline-white">Subscribe</a>
+            </div>
+        </section>
+        <section id="contact-us">
+            <h2 class="mt-4">Contact Us</h2>
+            <div id="container-form" class="mb-6">
+                <form action="" class="d-flex flex-wrap" id="form-contact-us" onsubmit="submitForm(event,this.id)">
+                    <div class="form-group w-50">
+                        <label for="first-name">First name</label>
+                        <input type="text" name="first-name" id="" class="form-control validate">
+                    </div>
+                    <div class="form-group w-50">
+                        <label for="last-name">Last name</label>
+                        <input type="text" name="last-name" id="" class="form-control validate" >
+                    </div>
+                    <div class="form-group w-50">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="" class="form-control validate" >
+                    </div>
+                    <div class="form-group w-50">
+                        <label for="number">Phone number</label>
+                        <input type="number" name="number" id="" class="form-control validate">
+                    </div>
+                    <div class="form-group w-100">
+                        <label for="message">Message</label>
+                        <textarea name="message" id="" cols="30" rows="10" class="form-control validate" title=""></textarea>
+                    </div>
+                    <div class="form-group w-100 mt-5">
+                        <input type="checkbox" name="promotions" id="">
+                        <label for="promotions">Send me emails about breaking news and promotions.</label>
+                    </div>
+                    <div class="form-group w-100 mt-6 d-flex j-content-center">
+                        <button type="submit" class="btn btn-default">Submit form</button>
+                    </div>
+                </form>
+            </div>
         </section>
     </main>
     <script src="./scripts/config.js"></script>
     <script src="./scripts/app.js"></script>
+    <script src="./scripts/utils.js"></script>
     <script src="./scripts/components/alert.js"></script>
     <script src="./scripts/components/news-card.js"></script>
+    <script src="./scripts/components/modal.js"></script>
 </body>
 
 </html>

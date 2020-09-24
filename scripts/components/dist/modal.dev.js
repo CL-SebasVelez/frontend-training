@@ -26,48 +26,44 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-var Alert =
+var Modal =
 /*#__PURE__*/
 function (_HTMLElement) {
-  _inherits(Alert, _HTMLElement);
+  _inherits(Modal, _HTMLElement);
 
-  function Alert() {
+  function Modal() {
     var _this;
 
-    _classCallCheck(this, Alert);
+    _classCallCheck(this, Modal);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Alert).call(this));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Modal).call(this));
     _this._root = _this.attachShadow({
       'mode': 'open'
     });
     return _this;
   }
 
-  _createClass(Alert, [{
+  _createClass(Modal, [{
     key: "connectedCallback",
     value: function connectedCallback() {
       var _this2 = this;
 
-      if (localStorage.getItem('alert') != "true") {
-        this._root.innerHTML = "\n            <style>\n                #welcome-alert {\n                    margin: 25px 0;\n                    height: 45px;\n                    background-color: #DFEFFD;\n                    display: grid;\n                    grid-template-columns: 1fr 2.5%;\n                }\n                #welcome-alert ::slotted(*) {\n                    color: #1D2121;\n                    font-family: \"Open Sans\";\n                    font-size: 14px;\n                    letter-spacing: -0.08px;\n                    line-height: 19px;\n                    padding: 0 18px;\n                }\n                #welcome-alert div{\n                    height: 20px;\n                    width: 20px;\n                    border-radius: 100%;\n                    background: #7e8388;\n                    text-align: center;\n                    color: white;\n                    align-self: center;\n                    cursor: pointer;\n                }\n                #welcome-alert div span{\n                    font-size: 17px;\n                }\n            </style>\n            <div id=\"welcome-alert\">\n                <slot name='text'></slot>\n                <div id=\"close\">\n                    <span>&times;</span>\n                </div>\n            </div>\n        ";
-        this.$closeButton = this._root.querySelector('#close');
-        this.$closeButton.addEventListener('click', function (e) {
-          e.preventDefault();
+      this._root.innerHTML = "\n            <style>\n                .modal {\n                    position: fixed;\n                    top: 0;\n                    right: 0;\n                    bottom: 0;\n                    left: 0;\n                    background: rgba(0, 0, 0, 0.8);\n                    z-index: 99999;\n                    opacity: 1;\n                    -webkit-transition: opacity 400ms ease-in;\n                    -moz-transition: opacity 400ms ease-in;\n                    transition: opacity 400ms ease-in;\n                    pointer-events: none;\n                }\n                .modal-content {\n                    background: #fefefe;\n                    width: 400px;\n                    height: auto;\n                    position: relative;\n                    margin: 5% auto;\n                    padding: 30px;\n                    border-radius: 5px;\n                }\n                .modal:target {\n                    opacity: 1;\n                    pointer-events: auto;\n                }\n            </style>\n            <div class=\"modal\" id=\"modal-one\">\n                <div class=\"modal-content\">\n                    <slot name=\"title\"></slot>\n                    <slot name=\"content\"></slot>\n                    <slot name=\"close\"></slot>\n                    <slot name=\"cancel\"></slot>\n                </div>\n            </div>\n        ";
+      this.$closeButton = this._root.querySelector('#close');
+      this.$closeButton.addEventListener('click', function (e) {
+        e.preventDefault();
 
-          _this2.closeAlert();
-        });
-      }
+        _this2.closeAlert();
+      });
     }
   }, {
     key: "closeAlert",
     value: function closeAlert() {
-      localStorage.setItem('alert', true);
-      var alert = document.querySelector('app-alert');
-      if (alert) alert.remove();
+      document.querySelector('app-modal').remove();
     }
   }]);
 
-  return Alert;
+  return Modal;
 }(_wrapNativeSuper(HTMLElement));
 
-window.customElements.define('app-alert', Alert);
+window.customElements.define('app-modal', Modal);

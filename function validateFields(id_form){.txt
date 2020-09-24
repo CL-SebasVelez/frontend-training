@@ -1,0 +1,59 @@
+function validateFields(id_form){
+    let isValid = true;
+    $(`#${id_form} .validate`).each((index,value)=>{
+        switch (value.type) {
+            case "number":
+            case "text":
+            case "time":
+            case "date":
+            case "textarea":
+                if($(value).val() == ""){
+                    $(value).addClass("is-invalid");
+                }
+                break;
+            case "select-one":
+                if(!$(value).val()){
+                    $(value).addClass("is-invalid");
+                }
+                break;
+            default:
+                break;
+        }
+        if( $(value).val() == "" ){
+            $(value).addClass("is-invalid");
+            isValid = false;
+            return;
+        }
+    });
+
+    return isValid;
+}
+
+$(document).on('blur keyup','.is-invalid',(event)=>{
+    switch (event.target.type) {
+        case "number":
+        case "text":
+        case "time":
+        case "date":
+        case "textarea":
+            if($(event.target).val().length > 0){
+                $(event.target).removeClass('is-invalid');
+            }
+            break;
+    }
+});
+
+$(document).on('select change','.is-invalid',(event)=>{
+    if($(event.target).val()){
+        $(event.target).removeClass('is-invalid');
+    }
+});
+
+
+$(document).ready(function(){
+    //$('table').not('.no-convert').DataTable(_DT_OPTIONS_);
+});
+
+$(document).on('keypress','.only-numbers',(event)=>{
+    if ( isNaN( String.fromCharCode(event.keyCode) )) return false;
+});

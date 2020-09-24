@@ -12,6 +12,7 @@ class NewsCard extends HTMLElement {
                 .card{
                     height: 404px;
                     width: 403px;
+                    max-width:403px;
                     background: transparent;
                 }
                 .card-image{

@@ -1,3 +1,6 @@
+/*
+* APP
+*/
 :root {
     --primary-font: "Open Sans", sans-serif;
 }
@@ -22,7 +25,157 @@ header {
 
 main {
     background: #f2f4f8;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
 }
+
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 2px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+	width: 5px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+	background-color: #000000;
+	border: 1px solid #555555;
+}
+/*
+* APP
+*/
+
+/*---------------------------------------------------------------*/
+
+/*
+* Common
+*/
+.btn{
+    box-sizing: border-box;
+    height: 40px;
+    width: 180px;
+    border-radius: 2px;
+    text-decoration: none;
+    color: #FFFFFF;
+    font-family: var(--primary-font);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.08px;
+    line-height: 19px;
+    padding: 10px 25px;
+    cursor: pointer;
+}
+
+.btn-default{
+    border: 1px solid #0073E9;
+    background-color: #0073E9;
+}
+
+.btn-danger{
+    border: 1px solid red;
+    background-color: red;
+}
+
+.btn-outline-white{
+    border: 1px solid #FFF;
+    color: #FFF;
+}
+
+.form-control{
+    display: block;
+}
+
+.form-group label{
+    display: inline-block;
+    color: #4B5353;
+    font-size: 13px;
+    letter-spacing: -0.07px;
+    line-height: 18px;
+    padding: 2px;
+}
+
+input[type='text'],input[type='email'],input[type='number']{
+    box-sizing: border-box;
+    height: 35px;
+    width: 397px;
+    border: 1px solid #D3DBE7;
+    border-radius: 3px;
+}
+
+textarea{
+    box-sizing: border-box;
+    height: 88px;
+    width: 873px;
+    border: 1px solid #D3DBE7;
+    border-radius: 3px;
+}
+
+.d-flex{
+    display: flex;
+}
+.w-50{
+    width: 50%;
+}
+.w-45{
+    width: 45%;
+}
+
+.w-100{
+    width: 100%;
+}
+
+.flex-wrap{
+    flex-wrap: wrap;
+}
+
+.a-self-center{
+    align-self: center;
+}
+.j-content-center{
+    justify-content: center;
+}
+.mt-4{
+    margin-top: 4%;
+}
+.mt-5{
+    margin-top: 5%;
+}
+.mt-6{
+    margin-top: 6%;
+}
+.mb-5{
+    margin-bottom: 5%;
+}
+.mb-6{
+    margin-bottom: 6%;
+}
+.mb-10{
+    margin-bottom: 10%;
+}
+
+.is-invalid{
+    border: 1px solid red !important;
+}
+.is-valid{
+    border: 1px solid greenyellow !important;
+}
+
+.c-pointer{
+    cursor: pointer !important;
+}
+/*
+* Common
+*/
+
+
+/*---------------------------------------------------------------*/
 
 /*
 * Header
@@ -36,7 +189,7 @@ main {
 
 .header {
     display: grid;
-    grid-template-columns: 16% 1fr 14%;
+    grid-template-columns: 28.5% 1fr 26.5%;
     /* position: fixed;
     width: 100%; */
 }
@@ -289,7 +442,12 @@ ul {
 */
 
 #news-container {
-    margin: 0 250px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 940px;
+    flex-direction: column;
+    align-self: center;
 }
 #news-container h1{
     color: #1D2121;
@@ -301,18 +459,111 @@ ul {
 }
 
 #news{
-    height: 1004px;
+    height: auto;
     max-height: 1004px;
-    width: 100%;
+    overflow-y: auto;
+    width: 940px;
     border-radius: 3px;
     background-color: #FFFFFF;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.05), 0 2px 4px 0 rgba(0,0,0,0.04);
-    padding: 41px 29px;
-    display: flex;
-    flex-wrap: wrap;
+    padding: 41px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(403px, 1fr));
+    justify-items: center;
 }
 
 .news-card{
   flex: 1 1 300px;
   margin-bottom: 114px;
+}
+
+/*
+* Newsletter
+*/
+
+#newsletter{
+    background-image: url('../images/newsletter.jpg');
+    width: 100%;
+    height: 576px;
+    background-size: 100% 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-attachment: fixed;
+
+}
+
+#newsletter div{
+    height: 208px;
+    width: 940px;
+}
+
+#newsletter h2{
+    color: #FFFFFF;
+    font-size: 30px;
+    letter-spacing: -0.16px;
+    line-height: 41px;
+
+}
+
+#newsletter p{
+    color: #FFFFFF;
+    font-size: 16px;
+    letter-spacing: -0.09px;
+    line-height: 22px;
+    height: 66px;
+    width: 403px;
+}
+
+/*
+* Contact us
+*/
+
+#contact-us{
+    width: 100%;
+    display: grid;
+    place-items: center;
+}
+
+#contact-us h2{
+    color: #1D2121;
+    font-size: 30px;
+    letter-spacing: -0.16px;
+    line-height: 41px;
+    text-align: center;
+    font-weight: 400;
+}
+
+#container-form{
+    width: 940px;
+    border-radius: 3px;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.05), 0 2px 4px 0 rgba(0,0,0,0.04);
+}
+
+#container-form form{
+    padding: 46px 0 46px 29px;
+}
+
+#container-form input[type='text'],input[type='email'],input[type='number']{
+    margin: 0 83px 45px 0;
+}
+#container-form input[type='checkbox']{
+    box-sizing: border-box;
+    height: 21px;
+    width: 21px;
+    border: 2px solid #BEC6C6;
+    border-radius: 2px;
+}
+#container-form label[for='promotions']{
+    color: #1D2121;
+    font-size: 16px;
+    letter-spacing: -0.09px;
+    line-height: 22px;
+    vertical-align: top;
+}
+
+app-modal ul{
+    padding: 2%;
+    margin: 9% 0;
 }
