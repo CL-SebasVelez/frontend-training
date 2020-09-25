@@ -1,20 +1,5 @@
 "use strict";
 
-(function () {
-    dropdown();
-})();
-
-function dropdown() {
-    document.querySelector('.dropdown').onclick = function (e) {
-        e.stopPropagation();
-        this.querySelector('.nav-dropdown').style.display = 'grid';
-    };
-
-    document.querySelector('html').onclick = function () {
-        this.querySelector('.nav-dropdown').style.display = 'none';
-    };
-}
-
 const news = (function () {
     async function getNews(term = "trending",offset = 0,count = 4) {
         return await fetch(`${API_URL}/search?q=${term}&mkt=es-ES&offset=${offset}&count=${count}`, {
@@ -69,7 +54,7 @@ function submitForm(event,form_id) {
             <ul slot="content">
                 ${data.map(element => `<li><b>${element.name}</b> : ${element.value}</li>`).join('')}
             </ul>
-            <a slot="close" id="close" class="btn btn-default c-pointer">Confirm and send</a>
+            <a slot="close" id="close" class="btn btn-default c-pointer" onclick="handleSubmit('${form_id}')">Confirm and send</a>
             <a slot="cancel" id="close" class="btn btn-danger c-pointer">Cancel</a>
         </app-modal>`);
     }
@@ -91,6 +76,10 @@ function getDataForm(id_form) {
 
 function getLabelForm(name) {
     return document.querySelector(`label[for="${name}"]`).innerHTML;
+}
+
+function handleSubmit(form_id) {
+    document.querySelector(`#${form_id}`).submit();
 }
 
 news.append("trending");

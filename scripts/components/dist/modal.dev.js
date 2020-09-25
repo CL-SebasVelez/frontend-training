@@ -48,13 +48,11 @@ function (_HTMLElement) {
     value: function connectedCallback() {
       var _this2 = this;
 
-      this._root.innerHTML = "\n            <style>\n                .modal {\n                    position: fixed;\n                    top: 0;\n                    right: 0;\n                    bottom: 0;\n                    left: 0;\n                    background: rgba(0, 0, 0, 0.8);\n                    z-index: 99999;\n                    opacity: 1;\n                    -webkit-transition: opacity 400ms ease-in;\n                    -moz-transition: opacity 400ms ease-in;\n                    transition: opacity 400ms ease-in;\n                    pointer-events: none;\n                }\n                .modal-content {\n                    background: #fefefe;\n                    width: 400px;\n                    height: auto;\n                    position: relative;\n                    margin: 5% auto;\n                    padding: 30px;\n                    border-radius: 5px;\n                }\n                .modal:target {\n                    opacity: 1;\n                    pointer-events: auto;\n                }\n            </style>\n            <div class=\"modal\" id=\"modal-one\">\n                <div class=\"modal-content\">\n                    <slot name=\"title\"></slot>\n                    <slot name=\"content\"></slot>\n                    <slot name=\"close\"></slot>\n                    <slot name=\"cancel\"></slot>\n                </div>\n            </div>\n        ";
-      this.$closeButton = this._root.querySelector('#close');
-      this.$closeButton.addEventListener('click', function (e) {
-        e.preventDefault();
+      this._root.innerHTML = "\n            <style>\n                .modal {\n                    position: fixed;\n                    top: 0;\n                    right: 0;\n                    bottom: 0;\n                    left: 0;\n                    background: rgba(0, 0, 0, 0.8);\n                    z-index: 99999;\n                    opacity: 1;\n                    -webkit-transition: opacity 400ms ease-in;\n                    -moz-transition: opacity 400ms ease-in;\n                    transition: opacity 400ms ease-in;\n                }\n                .modal-content {\n                    background: #fefefe;\n                    width: 400px;\n                    height: auto;\n                    position: relative;\n                    margin: 5% auto;\n                    padding: 30px;\n                    border-radius: 5px;\n                }\n            </style>\n            <div class=\"modal\" id=\"modal-one\">\n                <div class=\"modal-content\">\n                    <slot name=\"title\"></slot>\n                    <slot name=\"content\"></slot>\n                    <slot name=\"close\"></slot>\n                    <slot name=\"cancel\"></slot>\n                </div>\n            </div>\n        ";
 
+      this.shadowRoot.querySelector('[name="cancel"]').onclick = function () {
         _this2.closeAlert();
-      });
+      };
     }
   }, {
     key: "closeAlert",

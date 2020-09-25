@@ -21,7 +21,6 @@ class Modal extends HTMLElement {
                     -webkit-transition: opacity 400ms ease-in;
                     -moz-transition: opacity 400ms ease-in;
                     transition: opacity 400ms ease-in;
-                    pointer-events: none;
                 }
                 .modal-content {
                     background: #fefefe;
@@ -31,10 +30,6 @@ class Modal extends HTMLElement {
                     margin: 5% auto;
                     padding: 30px;
                     border-radius: 5px;
-                }
-                .modal:target {
-                    opacity: 1;
-                    pointer-events: auto;
                 }
             </style>
             <div class="modal" id="modal-one">
@@ -46,11 +41,9 @@ class Modal extends HTMLElement {
                 </div>
             </div>
         `;
-        this.$closeButton = this._root.querySelector('#close');
-        this.$closeButton.addEventListener('click', (e) => {
-            e.preventDefault();
+        this.shadowRoot.querySelector('[name="cancel"]').onclick = ()=>{
             this.closeAlert();
-        });
+        };
     }
 
     closeAlert() {

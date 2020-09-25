@@ -1,20 +1,5 @@
 "use strict";
 
-(function () {
-  dropdown();
-})();
-
-function dropdown() {
-  document.querySelector('.dropdown').onclick = function (e) {
-    e.stopPropagation();
-    this.querySelector('.nav-dropdown').style.display = 'grid';
-  };
-
-  document.querySelector('html').onclick = function () {
-    this.querySelector('.nav-dropdown').style.display = 'none';
-  };
-}
-
 var news = function () {
   function getNews() {
     var term,
@@ -84,7 +69,7 @@ function submitForm(event, form_id) {
     var data = getDataForm(form_id);
     document.querySelector('body').insertAdjacentHTML('afterbegin', "\n        <app-modal>\n            <h1 slot=\"title\">All data is correct?</h1>\n            <ul slot=\"content\">\n                ".concat(data.map(function (element) {
       return "<li><b>".concat(element.name, "</b> : ").concat(element.value, "</li>");
-    }).join(''), "\n            </ul>\n            <a slot=\"close\" id=\"close\" class=\"btn btn-default c-pointer\">Confirm and send</a>\n            <a slot=\"cancel\" id=\"close\" class=\"btn btn-danger c-pointer\">Cancel</a>\n        </app-modal>"));
+    }).join(''), "\n            </ul>\n            <a slot=\"close\" id=\"close\" class=\"btn btn-default c-pointer\" onclick=\"handleSubmit('").concat(form_id, "')\">Confirm and send</a>\n            <a slot=\"cancel\" id=\"close\" class=\"btn btn-danger c-pointer\">Cancel</a>\n        </app-modal>"));
   }
 }
 
@@ -101,6 +86,10 @@ function getDataForm(id_form) {
 
 function getLabelForm(name) {
   return document.querySelector("label[for=\"".concat(name, "\"]")).innerHTML;
+}
+
+function handleSubmit(form_id) {
+  document.querySelector("#".concat(form_id)).submit();
 }
 
 news.append("trending");

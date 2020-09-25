@@ -43,6 +43,12 @@ class NewsCard extends HTMLElement {
                     letter-spacing: -0.09px;
                     line-height: 22px;
                 }
+
+                @media (min-width: 320px) and (max-width: 480px) {
+                    .card{
+                        width: 350px;
+                    }
+                }
             </style>
             <div class="card">
                 <div class="card-image">
