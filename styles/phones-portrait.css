@@ -1,0 +1,127 @@
+@media (min-width: 320px) and (max-width: 480px) {
+
+    body {
+        display: flex;
+    }
+
+    .header {
+        width: 100%;
+        grid-template-columns: repeat(2,1fr);
+    }
+    .header #page-logo{
+        justify-self:flex-start;
+        margin-left: 5%;
+    }
+    .header .user-icon{
+        justify-self: flex-end;
+        margin-right: 10%;
+    }
+
+    .menu{
+        display: none;
+    }
+    /*
+    * News
+    */
+    #news {
+        width: max-content;
+        max-height: none;
+        align-self: center;
+    }
+
+    #news-container h1 {
+        text-align: center;
+    }
+
+    .news-card {
+        margin-bottom: 10%;
+    }
+
+    /*
+    * Newsletter
+    */
+
+    #newsletter {
+        background-position: right;
+        background-size: 300% 100%;
+    }
+
+    #newsletter h2,
+    p,
+    a {
+        margin: 5%;
+    }
+
+    .w-50 {
+        width: 45%;
+    }
+
+    .form-group {
+        margin-right: 5%;
+    }
+
+    #container-form {
+        width: 95vw;
+    }
+
+    input[type='text'],
+    input[type='email'],
+    input[type='number'],
+    textarea {
+        width: 100%;
+    }
+    #mobile-menu {
+        position: fixed;
+        bottom: 5%;
+        right: 5%;
+        background-color: #00000091;
+        padding: 5%;
+        border-radius: 100%;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        font-size: 35px;
+        cursor: pointer;
+    }
+    #mobile-menu .icon {
+        position: absolute;
+        top: 7px;
+        right: 15px;
+        color: #fff;
+    }
+
+    #mobile-menu .m-menu{
+        display: flex;
+        width: 100px;
+        height: auto;
+        flex-direction: column-reverse;
+        background: #FFF;
+        position: absolute;
+        bottom: 120%;
+        right: 0%;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 2px 0 rgba(0,0,0,0.18);
+        border: 1px solid #00000014;
+    }
+    #mobile-menu .m-menu li{
+        border-bottom: 1px solid #00000014;
+        text-align: right;
+    }
+    #mobile-menu .m-menu li a{
+        font-size: 12px;
+        text-decoration: none;
+        color: #000;
+        cursor: pointer;
+    }
+    .nav-dropdown{
+        width:120px;
+        box-shadow: none;
+    }
+    .nav-dropdown.sub-menu{
+        position: inherit;
+        display: block;
+    }
+}
+
+
