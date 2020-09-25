@@ -122,6 +122,9 @@
         position: inherit;
         display: block;
     }
+    app-alert{
+        margin: 0 2%;
+    }
 }
 
 

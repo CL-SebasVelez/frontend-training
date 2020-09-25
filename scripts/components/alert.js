@@ -38,6 +38,13 @@ class Alert extends HTMLElement {
                 #welcome-alert div span{
                     font-size: 17px;
                 }
+                @media (min-width: 320px) and (max-width: 480px) {
+                    #welcome-alert{
+                        width:100%;
+                        height: auto;
+                        grid-template-columns: 1fr 7%;
+                    }
+                }
             </style>
             <div id="welcome-alert">
                 <slot name='text'></slot>
