@@ -14,8 +14,8 @@
 </head>
 
 <body>
-    <header class="header">
-        <img src="./images/logo.svg" alt="Page logo" id="page-logo" class="child">
+    <header>
+        <a href="/" id="page-logo" class="child"><img src="./images/logo.svg" alt="News,The best news." ></a>
         <ul class="menu child">
             <li class="dropdown"><a href="#!">Services <span>&#8964;</span></a>
                 <ul class="nav-dropdown">
@@ -58,15 +58,15 @@
             </app-alert>
             <h1>Top news</h1>
             <div id="news"></div>
-            <a href="javascript:void(0)" class="btn btn-default a-self-center mt-5 mb-10" id="more-stories">View more
-                stories</a>
+            <button class="btn btn-default a-self-center mt-5 mb-10" id="more-stories">View more
+                stories</button>
         </section>
         <section id="newsletter">
             <div>
                 <h2>Subscribe to our newsletter</h2>
                 <p class="mt-5 mb-6">Subscribe to our newsletter to receive weekly digests of the vest ad most ground-breaking news. Also
                     receive a discount o your monthly subscription.</p>
-                <a href="javascript:void(0)" class="btn btn-outline-white">Subscribe</a>
+                <button class="btn btn-outline-white">Subscribe</button>
             </div>
         </section>
         <section id="contact-us">
@@ -76,24 +76,30 @@
                     <div class="form-group w-50">
                         <label for="first-name">First name</label>
                         <input type="text" name="first-name" class="form-control validate">
+                        <p class="d-none text-error">This field is required</p>
                     </div>
                     <div class="form-group w-50">
                         <label for="last-name">Last name</label>
                         <input type="text" name="last-name" class="form-control validate" >
+                        <p class="d-none text-error">This field is required</p>
                     </div>
                     <div class="form-group w-50">
                         <label for="email">Email</label>
                         <input type="email" name="email" class="form-control validate" >
+                        <p class="d-none text-error">This field is required or its format is wrong</p>
                     </div>
                     <div class="form-group w-50">
                         <label for="number">Phone number</label>
                         <input type="number" name="number" class="form-control validate">
+                        <p class="d-none text-error">This field is required or its format is wrong</p>
                     </div>
                     <div class="form-group w-100">
                         <label for="message">Message</label>
                         <textarea name="message" cols="30" rows="10" class="form-control validate" title=""></textarea>
+                        <p class="d-none text-error">This field is required</p>
                     </div>
                     <div class="form-group w-100 mt-5">
+                        <input type="hidden" name="promotions" value="off">
                         <input type="checkbox" name="promotions">
                         <label for="promotions">Send me emails about breaking news and promotions.</label>
                     </div>

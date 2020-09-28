@@ -1,5 +1,13 @@
 "use strict";
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
 (function () {
   dropdown();
   document.querySelector('#mobile-menu').addEventListener('click', function (event) {
@@ -18,22 +26,16 @@ function validateFields(id_form) {
     switch (el.type) {
       case "email":
         if (el.value == "" && !emailIsValid(el.value)) {
-          el.classList.remove('is-valid');
           el.classList.add('is-invalid');
-        } else {
-          el.classList.remove('is-invalid');
-          el.classList.add('is-valid');
+          showError(el);
         }
 
         break;
 
       case "number":
         if (el.value == "" && !isNumeric(el.value)) {
-          el.classList.remove('is-valid');
           el.classList.add('is-invalid');
-        } else {
-          el.classList.remove('is-invalid');
-          el.classList.add('is-valid');
+          showError(el);
         }
 
         break;
@@ -41,11 +43,8 @@ function validateFields(id_form) {
       case "text":
       case "textarea":
         if (el.value == "") {
-          el.classList.remove('is-valid');
           el.classList.add('is-invalid');
-        } else {
-          el.classList.remove('is-invalid');
-          el.classList.add('is-valid');
+          showError(el);
         }
 
         break;
@@ -63,11 +62,32 @@ function validateFields(id_form) {
 
     if (el.value == "") {
       el.classList.add('is-invalid');
+      showError(el);
       isValid = false;
       return;
     }
   });
   return isValid;
+}
+/**
+ * Show error message
+ * @param {HTMLElement} target
+ */
+
+
+function showError(target) {
+  var parent = target.closest('div');
+  parent.querySelector('p') ? parent.querySelector('p').classList.remove('d-none') : false;
+}
+/**
+ * Hide error message
+ * @param {HTMLElement} target
+ */
+
+
+function hideError(target) {
+  var parent = target.closest('div');
+  parent.querySelector('p') ? parent.querySelector('p').classList.add('d-none') : false;
 }
 /**
  * Validate the input fields and define if it is valid or not
@@ -80,7 +100,7 @@ function removeInvalid(event) {
     case "email":
       if (event.target.value != "" && emailIsValid(event.target.value)) {
         event.target.classList.remove('is-invalid');
-        event.target.classList.add('is-valid');
+        hideError(event.target);
       }
 
       break;
@@ -88,7 +108,7 @@ function removeInvalid(event) {
     case "number":
       if (event.target.value != "" && isNumeric(event.target.value)) {
         event.target.classList.remove('is-invalid');
-        event.target.classList.add('is-valid');
+        hideError(event.target);
       }
 
       break;
@@ -97,7 +117,7 @@ function removeInvalid(event) {
     case "textarea":
       if (event.target.value != "") {
         event.target.classList.remove('is-invalid');
-        event.target.classList.add('is-valid');
+        hideError(event.target);
       }
 
       break;
@@ -173,4 +193,16 @@ function emailIsValid(email) {
 
 function isNumeric(num) {
   return /^-?\d+$/.test(num);
+}
+/**
+ * Remove position to array from specific key
+ * @param {array} data
+ * @param {object} key
+ */
+
+
+function arrayUnique(data, key) {
+  return _toConsumableArray(new Map(data.map(function (x) {
+    return [key(x), x];
+  })).values());
 }

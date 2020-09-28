@@ -59,7 +59,7 @@ var news = function () {
     data.then(function (news) {
       news.forEach(function (element) {
         var image = 'image' in element ? element.image.thumbnail.contentUrl : 'https://www.bnd.com/latest-news/ppc7fl/picture222958020/alternates/LANDSCAPE_768/NEWSnew.jpg';
-        newsHTML += "\n                <news-card class=\"news-card\">\n                    <img slot=\"image\" src=\"".concat(image, "\" alt=\"\">\n                    <p slot=\"title\">").concat(element.name, "</p>\n                    <p slot=\"content\">").concat(element.description, "...</p>\n                </news-card>\n                ");
+        newsHTML += "\n                <news-card class=\"news-card\" open data-url=\"".concat(element.url, "\">\n                    <img slot=\"image\" src=\"").concat(image, "\" alt=\"\">\n                    <p slot=\"title\">").concat(element.name, "</p>\n                    <p slot=\"content\">").concat(element.description, "...</p>\n                </news-card>\n                ");
       });
       parent.insertAdjacentHTML('beforeend', newsHTML);
     });
@@ -104,7 +104,9 @@ var form = function () {
         value: e[1]
       };
     });
-    return data;
+    return arrayUnique(data, function (it) {
+      return it.name;
+    });
   }
   /**
    * Get Label to the input

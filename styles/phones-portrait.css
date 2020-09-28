@@ -8,15 +8,15 @@
     /*
     * Header
     */
-    .header {
+    header {
         width: 100%;
         grid-template-columns: repeat(2,1fr);
     }
-    .header #page-logo{
+    header #page-logo{
         justify-self:flex-start;
         margin-left: 5%;
     }
-    .header .user-icon{
+    header .user-icon{
         justify-self: flex-end;
         margin-right: 10%;
     }
@@ -133,6 +133,9 @@
     }
     app-alert{
         margin: 0 2%;
+    }
+    #container-form label[for='promotions']{
+        font-size: 12px;
     }
 }
 

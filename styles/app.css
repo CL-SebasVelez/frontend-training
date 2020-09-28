@@ -1,9 +1,6 @@
 /*
 * APP
 */
-:root {
-    --primary-font: "Open Sans", sans-serif;
-}
 
 body {
     display: grid;
@@ -13,7 +10,7 @@ body {
     margin: 0;
     box-sizing: border-box;
     background: #f2f4f8;
-    font-family: var(--primary-font);
+    font-family: "Open Sans", sans-serif;
 }
 
 header {
@@ -24,6 +21,9 @@ header {
     position: fixed;
     width: 100%;
     top: 0;
+    display: grid;
+    grid-template-columns: 28.5% 1fr 26.5%;
+    z-index: 999;
 }
 
 main {
@@ -68,76 +68,27 @@ main {
     justify-self: flex-end;
 }
 
-.header {
-    display: grid;
-    grid-template-columns: 28.5% 1fr 26.5%;
-}
-
-.header li {
+header li {
     float: left;
 }
 
-.header li a {
+header li a {
     display: block;
     text-decoration: none;
     padding: 22px 21px;
     height: 22px;
     color: #1d2121;
-    font-family: var(--primary-font);
     font-size: 16px;
     letter-spacing: -0.09px;
     line-height: 22px;
+    width: max-content;
 }
 
-.header .menu {
+header .menu {
     clear: none;
     float: right;
     max-height: none;
     margin-right: 6%;
-}
-
-nav {
-    float: right;
-}
-
-nav ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-nav ul li {
-    float: left;
-    position: relative;
-}
-
-nav ul li a {
-    display: block;
-    color: #fff;
-    padding: 0 20px;
-    background: #262626;
-    text-decoration: none;
-    line-height: 70px;
-}
-
-nav ul li a:hover {
-    background: #2581dc;
-    color: #fff;
-    transition: 0.4s;
-}
-
-nav ul li a:not(:only-child):after {
-    padding-left: 4px;
-    content: "  ▾";
-}
-
-nav ul li ul li {
-    min-width: 160px;
-}
-
-nav ul li ul li a {
-    padding: 15px;
-    line-height: 20px;
 }
 
 .nav-dropdown {
@@ -153,48 +104,6 @@ nav ul li ul li a {
     writing-mode: vertical-lr;
 }
 
-@media only screen and (max-width: 800px) {
-    nav {
-        width: 100%;
-        padding: 0 15px;
-    }
-
-    nav ul {
-        display: none;
-    }
-
-    nav ul li {
-        float: none;
-    }
-
-    nav ul li a {
-        padding: 15px;
-        line-height: 20px;
-    }
-
-    nav ul li ul li a {
-        padding-left: 40px;
-        background-color: gray;
-    }
-}
-
-#nav-toggle.active span {
-    background-color: transparent;
-}
-
-#nav-toggle.active span:before,
-#nav-toggle.active span:after {
-    top: 0;
-}
-
-#nav-toggle.active span:before {
-    transform: rotate(45deg);
-}
-
-#nav-toggle.active span:after {
-    transform: rotate(-45deg);
-}
-
 .user-icon {
     align-self: center;
 }
@@ -205,7 +114,6 @@ nav ul li ul li a {
     height: 25px;
     width: 25px;
     color: #fff;
-    font-family: var(--primary-font);
     font-size: 11px;
     font-weight: 700;
     letter-spacing: -0.06px;
@@ -257,7 +165,6 @@ ul {
 }
 #news-container h1{
     color: #1D2121;
-    font-family: var(--primary-font);
     font-size: 30px;
     letter-spacing: -0.16px;
     line-height: 41px;
@@ -266,8 +173,6 @@ ul {
 
 #news{
     height: auto;
-    max-height: 1004px;
-    overflow-y: auto;
     width: 940px;
     border-radius: 3px;
     background-color: #FFFFFF;
@@ -308,6 +213,7 @@ ul {
     font-size: 30px;
     letter-spacing: -0.16px;
     line-height: 41px;
+    font-weight: 400;
 
 }
 
@@ -349,10 +255,10 @@ ul {
 #container-form form{
     padding: 46px 0 46px 29px;
 }
-
-#container-form input[type='text'],input[type='email'],input[type='number']{
-    margin: 0 83px 45px 0;
+#container-form .form-group{
+    margin: 0 0 45px 0;
 }
+
 #container-form input[type='checkbox']{
     box-sizing: border-box;
     height: 21px;

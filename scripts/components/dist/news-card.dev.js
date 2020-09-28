@@ -46,7 +46,36 @@ function (_HTMLElement) {
   _createClass(NewsCard, [{
     key: "connectedCallback",
     value: function connectedCallback() {
-      this._root.innerHTML = "\n            <style>\n                .card{\n                    height: 404px;\n                    width: 403px;\n                    max-width:403px;\n                    background: transparent;\n                }\n                .card-image{\n                    min-height: 148px;\n                    max-height: 148px;\n                    margin-bottom: 20px;\n                }\n                .card-image ::slotted(*){\n                    max-width: 403px;\n                    width: 100%;\n                    min-height: 148px;\n                    max-height: 148px;\n                    object-fit: cover;\n                }\n                .card-title{\n                    color: #1D2121;\n                    font-family: var(--primary-font);\n                    font-size: 21px;\n                    font-weight: 600;\n                    letter-spacing: -0.11px;\n                    line-height: 28px;\n                    margin-bottom: 20px;\n                }\n                .card-content{\n                    color: #1D2121;\n                    font-family: var(--primary-font);\n                    font-size: 16px;\n                    letter-spacing: -0.09px;\n                    line-height: 22px;\n                }\n\n                @media (min-width: 320px) and (max-width: 480px) {\n                    .card{\n                        width: 350px;\n                    }\n                }\n            </style>\n            <div class=\"card\">\n                <div class=\"card-image\">\n                    <slot name='image'></slot>\n                </div>\n                <div class=\"card-title\"><slot name='title'></slot></div>\n                <div class=\"card-content\"><slot name='content'></slot></div>\n            </div>\n            ";
+      this._root.innerHTML = "\n            <style>\n                .card{\n                    height: 404px;\n                    width: 403px;\n                    max-width:403px;\n                    background: transparent;\n                }\n                .card-image{\n                    min-height: 154px;\n                    max-height: 154px;\n                    margin-bottom: 20px;\n                }\n                .card-image ::slotted(*){\n                    max-width: 403px;\n                    width: 100%;\n                    min-height: 154px;\n                    max-height: 154px;\n                    object-fit: cover;\n                }\n                .card-title{\n                    color: #1D2121;\n                    font-family: var(--primary-font);\n                    font-size: 21px;\n                    font-weight: 600;\n                    letter-spacing: -0.11px;\n                    line-height: 28px;\n                    margin-bottom: 20px;\n                    height: 84px;\n                }\n                .card-content{\n                    color: #1D2121;\n                    font-family: var(--primary-font);\n                    font-size: 16px;\n                    letter-spacing: -0.09px;\n                    line-height: 22px;\n                }\n\n                @media (min-width: 320px) and (max-width: 480px) {\n                    .card{\n                        width: 350px;\n                    }\n                }\n            </style>\n            <div class=\"card\">\n                <div class=\"card-image\">\n                    <slot name='image'></slot>\n                </div>\n                <div class=\"card-title\"><slot name='title'></slot></div>\n                <div class=\"card-content\"><slot name='content'></slot></div>\n            </div>\n            ";
+    }
+  }, {
+    key: "attributeChangedCallback",
+    value: function attributeChangedCallback(name, oldValue, newValue) {
+      if (this.open) {
+        this.onclick = function () {
+          var url = this.dataset.url;
+          window.open(url, '_blank');
+        };
+
+        this.classList.add('c-pointer');
+      }
+    }
+  }, {
+    key: "open",
+    get: function get() {
+      return this.hasAttribute('open');
+    },
+    set: function set(val) {
+      if (val) {
+        this.setAttribute('open', '');
+      } else {
+        this.removeAttribute('open');
+      }
+    }
+  }], [{
+    key: "observedAttributes",
+    get: function get() {
+      return ['open'];
     }
   }]);
 
