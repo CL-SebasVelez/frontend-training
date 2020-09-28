@@ -71,7 +71,7 @@ const form = (function(){
                 <ul slot="content">
                     ${data.map(element => `<li><b>${element.name}</b> : ${element.value}</li>`).join('')}
                 </ul>
-                <a slot="close" id="close" class="btn btn-default c-pointer" onclick="handleSubmit('${form_id}')">Confirm and send</a>
+                <a slot="close" id="close" class="btn btn-default c-pointer" onclick="form.handleSubmit('${form_id}')">Confirm and send</a>
                 <a slot="cancel" id="close" class="btn btn-danger c-pointer">Cancel</a>
             </app-modal>`);
         }
@@ -112,7 +112,8 @@ const form = (function(){
     }
 
     return {
-        submit: submitForm
+        submit: submitForm,
+        handleSubmit
     }
 })();
 
