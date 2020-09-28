@@ -6,16 +6,39 @@
     mobileMenu(event);
   });
 })();
+/**
+ * Obtain the inputs of the submitted form and validate that they meet the necessary criteria.
+ * @param {string} id_form = HTML Form ID to validate
+ */
+
 
 function validateFields(id_form) {
   var isValid = true;
   document.querySelectorAll("#".concat(id_form, " .validate")).forEach(function (el) {
     switch (el.type) {
-      case "number":
-      case "text":
-      case "time":
-      case "date":
       case "email":
+        if (el.value == "" && !emailIsValid(el.value)) {
+          el.classList.remove('is-valid');
+          el.classList.add('is-invalid');
+        } else {
+          el.classList.remove('is-invalid');
+          el.classList.add('is-valid');
+        }
+
+        break;
+
+      case "number":
+        if (el.value == "" && !isNumeric(el.value)) {
+          el.classList.remove('is-valid');
+          el.classList.add('is-invalid');
+        } else {
+          el.classList.remove('is-invalid');
+          el.classList.add('is-valid');
+        }
+
+        break;
+
+      case "text":
       case "textarea":
         if (el.value == "") {
           el.classList.remove('is-valid');
@@ -46,14 +69,31 @@ function validateFields(id_form) {
   });
   return isValid;
 }
+/**
+ * Validate the input fields and define if it is valid or not
+ * @param {HTMLEvent} event = Event executed in inputs
+ */
+
 
 function removeInvalid(event) {
   switch (event.target.type) {
-    case "number":
-    case "text":
-    case "time":
-    case "date":
     case "email":
+      if (event.target.value != "" && emailIsValid(event.target.value)) {
+        event.target.classList.remove('is-invalid');
+        event.target.classList.add('is-valid');
+      }
+
+      break;
+
+    case "number":
+      if (event.target.value != "" && isNumeric(event.target.value)) {
+        event.target.classList.remove('is-invalid');
+        event.target.classList.add('is-valid');
+      }
+
+      break;
+
+    case "text":
     case "textarea":
       if (event.target.value != "") {
         event.target.classList.remove('is-invalid');
@@ -63,6 +103,10 @@ function removeInvalid(event) {
       break;
   }
 }
+/**
+ * Toggle dropdown
+ */
+
 
 function dropdown() {
   document.querySelector('.dropdown').onclick = function (e) {
@@ -74,6 +118,11 @@ function dropdown() {
     this.querySelector('.nav-dropdown').style.display = 'none';
   };
 }
+/**
+ * Open mobile menu
+ * @param {HTMLEvent} event = Event executed in HTML
+ */
+
 
 function mobileMenu(event) {
   var self = event.target;
@@ -89,6 +138,10 @@ function mobileMenu(event) {
 
   mobileSubMenu();
 }
+/**
+ * Allow to show sub-menus in menu
+ */
+
 
 function mobileSubMenu() {
   document.querySelectorAll('.m-menu li.dropdown').forEach(function (element) {
@@ -102,4 +155,22 @@ function mobileSubMenu() {
       }
     };
   });
+}
+/**
+ * Validate email
+ * @param {any} email
+ */
+
+
+function emailIsValid(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+/**
+ * Validate numeric value
+ * @param {any} num
+ */
+
+
+function isNumeric(num) {
+  return /^-?\d+$/.test(num);
 }
