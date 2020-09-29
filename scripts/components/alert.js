@@ -25,7 +25,7 @@ class Alert extends HTMLElement {
                     line-height: 19px;
                     padding: 0 18px;
                 }
-                #welcome-alert div{
+                #welcome-alert button{
                     height: 20px;
                     width: 20px;
                     border-radius: 100%;
@@ -34,9 +34,14 @@ class Alert extends HTMLElement {
                     color: white;
                     align-self: center;
                     cursor: pointer;
+                    position: relative;
+                    border: none;
                 }
-                #welcome-alert div span{
+                #welcome-alert button span{
                     font-size: 17px;
+                    position: absolute;
+                    top: 1px;
+                    right: 5px;
                 }
                 @media (min-width: 320px) and (max-width: 480px) {
                     #welcome-alert{
@@ -48,9 +53,9 @@ class Alert extends HTMLElement {
             </style>
             <div id="welcome-alert">
                 <slot name='text'></slot>
-                <div id="close">
+                <button id="close">
                     <span>&times;</span>
-                </div>
+                </button>
             </div>
         `;
             this.$closeButton = this._root.querySelector('#close');

@@ -15,30 +15,21 @@ function validateFields(id_form) {
         switch (el.type) {
             case "email":
                 if (el.value == "" && !emailIsValid(el.value)) {
-                    el.classList.remove('is-valid');
                     el.classList.add('is-invalid');
-                } else {
-                    el.classList.remove('is-invalid');
-                    el.classList.add('is-valid');
+                    showError(el);
                 }
                 break;
             case "number":
                 if (el.value == "" && !isNumeric(el.value)) {
-                    el.classList.remove('is-valid');
                     el.classList.add('is-invalid');
-                } else {
-                    el.classList.remove('is-invalid');
-                    el.classList.add('is-valid');
+                    showError(el);
                 }
                 break;
             case "text":
             case "textarea":
                 if (el.value == "") {
-                    el.classList.remove('is-valid');
                     el.classList.add('is-invalid');
-                } else {
-                    el.classList.remove('is-invalid');
-                    el.classList.add('is-valid');
+                    showError(el);
                 }
                 break;
             default:
@@ -48,12 +39,31 @@ function validateFields(id_form) {
         el.addEventListener('keyup', (event) => removeInvalid(event), false);
         if (el.value == "") {
             el.classList.add('is-invalid');
+            showError(el);
             isValid = false;
             return;
         }
     });
 
     return isValid;
+}
+
+/**
+ * Show error message
+ * @param {HTMLElement} target
+ */
+function showError(target) {
+    const parent = target.closest('div');
+    parent.querySelector('p') ? parent.querySelector('p').classList.remove('d-none') : false;
+}
+
+/**
+ * Hide error message
+ * @param {HTMLElement} target
+ */
+function hideError(target) {
+    const parent = target.closest('div');
+    parent.querySelector('p') ? parent.querySelector('p').classList.add('d-none') : false;
 }
 
 /**
@@ -65,20 +75,20 @@ function removeInvalid(event) {
         case "email":
             if (event.target.value != "" && emailIsValid(event.target.value)) {
                 event.target.classList.remove('is-invalid');
-                event.target.classList.add('is-valid');
+                hideError(event.target);
             }
             break;
         case "number":
             if (event.target.value != "" && isNumeric(event.target.value)) {
                 event.target.classList.remove('is-invalid');
-                event.target.classList.add('is-valid');
+                hideError(event.target);
             }
             break;
         case "text":
         case "textarea":
             if (event.target.value != "") {
                 event.target.classList.remove('is-invalid');
-                event.target.classList.add('is-valid');
+                hideError(event.target);
             }
             break;
     }
@@ -104,7 +114,7 @@ function dropdown() {
  */
 function mobileMenu(event) {
     const self   = event.target;
-    const parent = self.closest("#mobile-menu");
+    const parent = self.closest("#m-menu");
     const icon   = parent.querySelector('.icon');
     const state  = parent.querySelector('ul').classList.contains('d-none');
     if (state) {
@@ -145,4 +155,17 @@ function emailIsValid(email) {
  */
 function isNumeric(num) {
     return /^-?\d+$/.test(num);
+}
+
+/**
+ * Remove position to array from specific key
+ * @param {array} data
+ * @param {object} key
+ */
+function arrayUnique(data,key){
+    return [
+        ...new Map(
+            data.map(x => [key(x),x])
+        ).values()
+    ];
 }

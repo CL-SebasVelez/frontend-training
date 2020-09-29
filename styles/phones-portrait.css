@@ -2,21 +2,21 @@
 
     body {
         display: flex;
-        width: 98vw;
+        width: 100vw;
         max-width: 100vw;
     }
     /*
     * Header
     */
-    .header {
+    header {
         width: 100%;
         grid-template-columns: repeat(2,1fr);
     }
-    .header #page-logo{
+    header #page-logo{
         justify-self:flex-start;
         margin-left: 5%;
     }
-    .header .user-icon{
+    header .user-icon{
         justify-self: flex-end;
         margin-right: 10%;
     }
@@ -50,10 +50,21 @@
         background-size: 300% 100%;
     }
 
+    #newsletter div{
+        width:100%;
+    }
+
     #newsletter h2,
     p,
     a {
         margin: 5%;
+    }
+
+    #newsletter p{
+        width:90%;
+    }
+    #newsletter button{
+        margin:5% 0 0 5%;
     }
     /*
     * Common
@@ -81,47 +92,48 @@
     */
     #mobile-menu {
         position: fixed;
-        bottom: 5%;
-        right: 5%;
-        background-color: #00000091;
-        padding: 5%;
-        border-radius: 100%;
-        width: 20px;
-        height: 20px;
+        bottom: 0;
+        right: 0;
+        background-color: #ffffffe6;
+        width: 100%;
+        height: 66px;
+        font-size: 20px;
+        cursor: pointer;
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        color: black;
+        align-items: center;
+        box-shadow: 0 -2px 2px 0 rgba(0, 0, 0, 0.18);
+        -webkit-tap-highlight-color: transparent;
+        overflow: visible;
+    }
+    #mobile-menu li{
         text-align: center;
-        font-size: 35px;
+    }
+    #mobile-menu li a{
+        font-size: 20px;
+        text-decoration: none;
+        color: #FFF;
         cursor: pointer;
     }
-    #mobile-menu .icon {
-        position: absolute;
-        top: 7px;
-        right: 15px;
-        color: #fff;
-    }
-
     #mobile-menu .m-menu{
-        display: flex;
-        width: 100px;
-        height: auto;
-        flex-direction: column-reverse;
-        background: #FFF;
         position: absolute;
-        bottom: 120%;
-        right: 0%;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 2px 2px 0 rgba(0,0,0,0.18);
-        border: 1px solid #00000014;
+        bottom: 102%;
+        background: #fff;
+        width: 30%;
+        right: 0px;
+        padding: 3%;
+        box-shadow: -3px -3px 2px 0 rgba(0, 0, 0, 0.18);
+        border-top-left-radius: 10px;
     }
     #mobile-menu .m-menu li{
-        border-bottom: 1px solid #00000014;
+        padding: 2%;
         text-align: right;
+        margin-top: 10%;
+        border-bottom: 1px solid #00000024;
     }
     #mobile-menu .m-menu li a{
-        font-size: 12px;
-        text-decoration: none;
-        color: #000;
-        cursor: pointer;
+        color: black;
     }
     .nav-dropdown{
         width:120px;
@@ -131,8 +143,14 @@
         position: inherit;
         display: block;
     }
+    .nav-dropdown li a{
+        font-size: 12px !important;
+    }
     app-alert{
         margin: 0 2%;
+    }
+    #container-form label[for='promotions']{
+        font-size: 12px;
     }
 }
 

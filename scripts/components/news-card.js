@@ -6,6 +6,10 @@ class NewsCard extends HTMLElement {
         });
     }
 
+    static get observedAttributes() {
+        return ['open'];
+    }
+
     connectedCallback() {
         this._root.innerHTML = `
             <style>
@@ -16,15 +20,15 @@ class NewsCard extends HTMLElement {
                     background: transparent;
                 }
                 .card-image{
-                    min-height: 148px;
-                    max-height: 148px;
+                    min-height: 154px;
+                    max-height: 154px;
                     margin-bottom: 20px;
                 }
                 .card-image ::slotted(*){
                     max-width: 403px;
                     width: 100%;
-                    min-height: 148px;
-                    max-height: 148px;
+                    min-height: 154px;
+                    max-height: 154px;
                     object-fit: cover;
                 }
                 .card-title{
@@ -35,6 +39,7 @@ class NewsCard extends HTMLElement {
                     letter-spacing: -0.11px;
                     line-height: 28px;
                     margin-bottom: 20px;
+                    height: 84px;
                 }
                 .card-content{
                     color: #1D2121;
@@ -58,6 +63,28 @@ class NewsCard extends HTMLElement {
                 <div class="card-content"><slot name='content'></slot></div>
             </div>
             `;
+    }
+
+    get open() {
+        return this.hasAttribute('open');
+    }
+
+    set open(val) {
+        if (val) {
+            this.setAttribute('open', '');
+        } else {
+            this.removeAttribute('open');
+        }
+    }
+
+    attributeChangedCallback(name, oldValue, newValue) {
+        if (this.open) {
+            this.onclick = function () {
+                const {url} = this.dataset;
+                window.open(url,'_blank');
+            }
+            this.classList.add('c-pointer');
+        }
     }
 }
 

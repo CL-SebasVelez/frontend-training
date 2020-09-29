@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>News</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
@@ -14,8 +14,8 @@
 </head>
 
 <body>
-    <header class="header">
-        <img src="./images/logo.svg" alt="Page logo" id="page-logo" class="child">
+    <header>
+        <a href="/" id="page-logo" class="child"><img src="./images/logo.svg" alt="News,The best news."></a>
         <ul class="menu child">
             <li class="dropdown"><a href="#!">Services <span>&#8964;</span></a>
                 <ul class="nav-dropdown">
@@ -34,22 +34,26 @@
             <span class="user-info">JS</span>
         </div>
     </header>
-    <div id="mobile-menu">
-        <span class="icon">&#9776;</span>
-        <ul class="d-none m-menu">
-            <li class="dropdown"><a href="#!"><span>&#8964;</span>Services</a>
-                <ul class="nav-dropdown">
-                    <li><a href="#">Sports &#127936;</a></li>
-                    <li><a href="#">Entertainment &#127918;</a></li>
-                    <li><a href="#">Economics &#128176;</a></li>
-                    <li><a href="#">Technology &#128241;</a></li>
-                    <li><a href="#">Health &#129361;</a></li>
-                </ul>
-            </li>
-            <li><a href="#us">Editorial</a></li>
-            <li><a href="#guests">Contact us</a></li>
-        </ul>
-    </div>
+    <ul id="mobile-menu">
+        <li><a href="#">&#127936;</a></li>
+        <li><a href="#">&#128176;</a></li>
+        <li><a href="#">&#129361;</a></li>
+        <li id="m-menu"><span class="icon">&#9776;</span>
+            <ul class="d-none m-menu">
+                <li class="dropdown"><a href="#!"><span>&#8964;</span>Services</a>
+                    <ul class="nav-dropdown">
+                        <li><a href="#">Sports &#127936;</a></li>
+                        <li><a href="#">Entertainment &#127918;</a></li>
+                        <li><a href="#">Economics &#128176;</a></li>
+                        <li><a href="#">Technology &#128241;</a></li>
+                        <li><a href="#">Health &#129361;</a></li>
+                    </ul>
+                </li>
+                <li><a href="#us">Editorial</a></li>
+                <li><a href="#guests">Contact us</a></li>
+            </ul>
+        </li>
+    </ul>
     <main>
         <section id="news-container">
             <app-alert>
@@ -58,15 +62,16 @@
             </app-alert>
             <h1>Top news</h1>
             <div id="news"></div>
-            <a href="javascript:void(0)" class="btn btn-default a-self-center mt-5 mb-10" id="more-stories">View more
-                stories</a>
+            <button class="btn btn-default a-self-center mt-5 mb-10" id="more-stories">View more
+                stories</button>
         </section>
         <section id="newsletter">
             <div>
                 <h2>Subscribe to our newsletter</h2>
-                <p class="mt-5 mb-6">Subscribe to our newsletter to receive weekly digests of the vest ad most ground-breaking news. Also
+                <p class="mt-5 mb-6">Subscribe to our newsletter to receive weekly digests of the vest ad most
+                    ground-breaking news. Also
                     receive a discount o your monthly subscription.</p>
-                <a href="javascript:void(0)" class="btn btn-outline-white">Subscribe</a>
+                <button class="btn btn-outline-white">Subscribe</button>
             </div>
         </section>
         <section id="contact-us">
@@ -76,24 +81,30 @@
                     <div class="form-group w-50">
                         <label for="first-name">First name</label>
                         <input type="text" name="first-name" class="form-control validate">
+                        <p class="d-none text-error">This field is required</p>
                     </div>
                     <div class="form-group w-50">
                         <label for="last-name">Last name</label>
-                        <input type="text" name="last-name" class="form-control validate" >
+                        <input type="text" name="last-name" class="form-control validate">
+                        <p class="d-none text-error">This field is required</p>
                     </div>
                     <div class="form-group w-50">
                         <label for="email">Email</label>
-                        <input type="email" name="email" class="form-control validate" >
+                        <input type="email" name="email" class="form-control validate">
+                        <p class="d-none text-error">This field is required or its format is wrong</p>
                     </div>
                     <div class="form-group w-50">
                         <label for="number">Phone number</label>
                         <input type="number" name="number" class="form-control validate">
+                        <p class="d-none text-error">This field is required or its format is wrong</p>
                     </div>
                     <div class="form-group w-100">
                         <label for="message">Message</label>
                         <textarea name="message" cols="30" rows="10" class="form-control validate" title=""></textarea>
+                        <p class="d-none text-error">This field is required</p>
                     </div>
                     <div class="form-group w-100 mt-5">
+                        <input type="hidden" name="promotions" value="off">
                         <input type="checkbox" name="promotions">
                         <label for="promotions">Send me emails about breaking news and promotions.</label>
                     </div>

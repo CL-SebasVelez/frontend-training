@@ -37,7 +37,7 @@ const news = (function () {
             news.forEach(element => {
                 let image = 'image' in element ? element.image.thumbnail.contentUrl : 'https://www.bnd.com/latest-news/ppc7fl/picture222958020/alternates/LANDSCAPE_768/NEWSnew.jpg';
                 newsHTML += `
-                <news-card class="news-card">
+                <news-card class="news-card" open data-url="${element.url}">
                     <img slot="image" src="${image}" alt="">
                     <p slot="title">${element.name}</p>
                     <p slot="content">${element.description}...</p>
@@ -50,6 +50,7 @@ const news = (function () {
             appendNews(term,offset+4);
         };
     }
+
     return {
         append: appendNews
     }
@@ -92,7 +93,7 @@ const form = (function(){
                             }
                         }
                     );
-        return data;
+    return  arrayUnique(data,it => it.name);
     }
 
     /**
