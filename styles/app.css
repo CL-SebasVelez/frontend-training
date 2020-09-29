@@ -1,6 +1,9 @@
 /*
 * APP
 */
+:focus {
+    outline: none !important;
+}
 
 body {
     display: grid;

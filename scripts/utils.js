@@ -114,7 +114,7 @@ function dropdown() {
  */
 function mobileMenu(event) {
     const self   = event.target;
-    const parent = self.closest("#mobile-menu");
+    const parent = self.closest("#m-menu");
     const icon   = parent.querySelector('.icon');
     const state  = parent.querySelector('ul').classList.contains('d-none');
     if (state) {
