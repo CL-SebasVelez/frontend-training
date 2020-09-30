@@ -105,7 +105,7 @@ const form = (function () {
                       )
                       .join('')}
                 </ul>
-                <a slot='close' id='close' class='btn btn-default c-pointer' onclick='form.handleSubmit('${formId}')'>Confirm and send</a>
+                <a slot='close' id='close' class='btn btn-default c-pointer' onclick='form.handleSubmit("${formId}")'>Confirm and send</a>
                 <a slot='cancel' id='close' class='btn btn-danger c-pointer'>Cancel</a>
             </app-modal>`
       );
