@@ -7,15 +7,14 @@ const news = (function () {
    */
   async function getNews(term = 'trending', offset = 0, count = 4) {
     return fetch(
-      `${API_URL}/search?q=${term}&mkt=es-ES&offset=${offset}&count=${count}`,
-      {
-        method: 'GET',
-        headers: {
-          'x-rapidapi-host': API_HOST,
-          'x-rapidapi-key': API_KEY,
-        },
-      }
-    )
+        `${API_URL}/search?q=${term}&mkt=es-ES&offset=${offset}&count=${count}`, {
+          method: 'GET',
+          headers: {
+            'x-rapidapi-host': API_HOST,
+            'x-rapidapi-key': API_KEY,
+          },
+        }
+      )
       .then((response) => {
         return response.json();
       })
@@ -37,9 +36,9 @@ const news = (function () {
     data.then((el) => {
       el.forEach((element) => {
         const image =
-          'image' in element
-            ? element.image.thumbnail.contentUrl
-            : 'https://www.bnd.com/latest-news/ppc7fl/picture222958020/alternates/LANDSCAPE_768/NEWSnew.jpg';
+          'image' in element ?
+          element.image.thumbnail.contentUrl :
+          'https://www.bnd.com/latest-news/ppc7fl/picture222958020/alternates/LANDSCAPE_768/NEWSnew.jpg';
         newsHTML += `
                 <news-card class='news-card' open data-url='${element.url}'>
                     <img slot='image' src='${image}' alt=''>
@@ -127,7 +126,9 @@ const form = (function () {
   };
 })();
 
-news.append('trending');
-document.querySelector('form-contact-us').onsubmit = function (event) {
-  form.submit(event, this.id);
-};
+(function () {
+  news.append('trending');
+  document.querySelector('#form-contact-us').onsubmit = function (event) {
+    form.submit(event, this.id);
+  };
+})();
