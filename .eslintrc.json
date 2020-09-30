@@ -1,0 +1,23 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": ["airbnb", "prettier"],
+    "plugins": ["prettier"],
+    "globals": {
+        "localStorage": true,
+        "fetch": true,
+        "document": true
+    },
+    "rules": {
+        "prettier/prettier": "error",
+        "no-unused-vars": "warn",
+        "no-console": "off",
+        "func-names": "off",
+        "object-shorthand": "off",
+        "class-methods-use-this": "off",
+        "no-underscore-dangle": "off",
+        "no-unused-expressions": "off"
+    }
+}
