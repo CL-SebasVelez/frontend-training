@@ -1,13 +1,13 @@
 class Modal extends HTMLElement {
-    constructor() {
-        super();
-        this._root = this.attachShadow({
-            'mode': 'open'
-        });
-    }
+  constructor() {
+    super();
+    this._root = this.attachShadow({
+      mode: 'open',
+    });
+  }
 
-    connectedCallback() {
-        this._root.innerHTML = `
+  connectedCallback() {
+    this._root.innerHTML = `
             <style>
                 .modal {
                     position: fixed;
@@ -32,25 +32,23 @@ class Modal extends HTMLElement {
                     border-radius: 5px;
                 }
             </style>
-            <div class="modal" id="modal-one">
-                <div class="modal-content">
-                    <slot name="title"></slot>
-                    <slot name="content"></slot>
-                    <slot name="close"></slot>
-                    <slot name="cancel"></slot>
+            <div class='modal' id='modal-one'>
+                <div class='modal-content'>
+                    <slot name='title'></slot>
+                    <slot name='content'></slot>
+                    <slot name='close'></slot>
+                    <slot name='cancel'></slot>
                 </div>
             </div>
         `;
-        this.shadowRoot.querySelector('[name="cancel"]').onclick = ()=>{
-            this.closeAlert();
-        };
-    }
+    this.shadowRoot.querySelector('[name="cancel"]').onclick = () => {
+      this.closeAlert();
+    };
+  }
 
-    closeAlert() {
-        document.querySelector('app-modal').remove();
-    }
-
-
+  closeAlert() {
+    document.querySelector('app-modal').remove();
+  }
 }
 
 window.customElements.define('app-modal', Modal);

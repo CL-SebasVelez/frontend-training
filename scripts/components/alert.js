@@ -1,14 +1,14 @@
 class Alert extends HTMLElement {
-    constructor() {
-        super();
-        this._root = this.attachShadow({
-            'mode': 'open'
-        });
-    }
+  constructor() {
+    super();
+    this._root = this.attachShadow({
+      mode: 'open',
+    });
+  }
 
-    connectedCallback() {
-        if (localStorage.getItem('alert') != "true") {
-            this._root.innerHTML = `
+  connectedCallback() {
+    if (localStorage.getItem('alert') !== 'true') {
+      this._root.innerHTML = `
             <style>
                 #welcome-alert {
                     margin: 25px 0;
@@ -19,7 +19,7 @@ class Alert extends HTMLElement {
                 }
                 #welcome-alert ::slotted(*) {
                     color: #1D2121;
-                    font-family: "Open Sans";
+                    font-family: 'Open Sans';
                     font-size: 14px;
                     letter-spacing: -0.08px;
                     line-height: 19px;
@@ -51,27 +51,26 @@ class Alert extends HTMLElement {
                     }
                 }
             </style>
-            <div id="welcome-alert">
+            <div id='welcome-alert'>
                 <slot name='text'></slot>
-                <button id="close">
+                <button id='close'>
                     <span>&times;</span>
                 </button>
             </div>
         `;
-            this.$closeButton = this._root.querySelector('#close');
-            this.$closeButton.addEventListener('click', (e) => {
-                e.preventDefault();
-                this.closeAlert();
-            });
-        }
+      this.$closeButton = this._root.querySelector('#close');
+      this.$closeButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        this.closeAlert();
+      });
     }
+  }
 
-    closeAlert(){
-        localStorage.setItem('alert',true);
-        let alert = document.querySelector('app-alert');
-        if(alert) alert.remove();
-    }
-
+  closeAlert() {
+    localStorage.setItem('alert', true);
+    const alert = document.querySelector('app-alert');
+    if (alert) alert.remove();
+  }
 }
 
 window.customElements.define('app-alert', Alert);

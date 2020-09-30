@@ -1,17 +1,17 @@
 class NewsCard extends HTMLElement {
-    constructor() {
-        super();
-        this._root = this.attachShadow({
-            'mode': 'open'
-        });
-    }
+  constructor() {
+    super();
+    this._root = this.attachShadow({
+      mode: 'open',
+    });
+  }
 
-    static get observedAttributes() {
-        return ['open'];
-    }
+  static get observedAttributes() {
+    return ['open'];
+  }
 
-    connectedCallback() {
-        this._root.innerHTML = `
+  connectedCallback() {
+    this._root.innerHTML = `
             <style>
                 .card{
                     height: 404px;
@@ -55,37 +55,37 @@ class NewsCard extends HTMLElement {
                     }
                 }
             </style>
-            <div class="card">
-                <div class="card-image">
+            <div class='card'>
+                <div class='card-image'>
                     <slot name='image'></slot>
                 </div>
-                <div class="card-title"><slot name='title'></slot></div>
-                <div class="card-content"><slot name='content'></slot></div>
+                <div class='card-title'><slot name='title'></slot></div>
+                <div class='card-content'><slot name='content'></slot></div>
             </div>
             `;
-    }
+  }
 
-    get open() {
-        return this.hasAttribute('open');
-    }
+  get open() {
+    return this.hasAttribute('open');
+  }
 
-    set open(val) {
-        if (val) {
-            this.setAttribute('open', '');
-        } else {
-            this.removeAttribute('open');
-        }
+  set open(val) {
+    if (val) {
+      this.setAttribute('open', '');
+    } else {
+      this.removeAttribute('open');
     }
+  }
 
-    attributeChangedCallback(name, oldValue, newValue) {
-        if (this.open) {
-            this.onclick = function () {
-                const {url} = this.dataset;
-                window.open(url,'_blank');
-            }
-            this.classList.add('c-pointer');
-        }
+  attributeChangedCallback() {
+    if (this.open) {
+      this.onclick = function () {
+        const { url } = this.dataset;
+        window.open(url, '_blank');
+      };
+      this.classList.add('c-pointer');
     }
+  }
 }
 
 window.customElements.define('news-card', NewsCard);
