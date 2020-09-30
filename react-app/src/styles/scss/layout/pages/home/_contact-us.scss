@@ -1,0 +1,51 @@
+@import '../../../components/mixins/mixins';
+#contact-us {
+    width: 100%;
+    display: grid;
+    place-items: center;
+
+    h2 {
+        color: #1D2121;
+        font-size: 30px;
+        letter-spacing: -0.16px;
+        line-height: 41px;
+        text-align: center;
+        font-weight: 400;
+    }
+
+    #container-form {
+        width: 940px;
+        @include rounded(3px);
+        background-color: #FFFFFF;
+        @include box-shadow(0 2px 2px 0 rgba(0, 0, 0, 0.05), 0 2px 4px 0 rgba(0, 0, 0, 0.04));
+        @include media(xs) {
+            width: 95vw;
+        }
+        form {
+            padding: 46px 0 46px 29px;
+        }
+
+        .form-group {
+            margin: 0 0 45px 0;
+        }
+
+        input[type='checkbox'] {
+            box-sizing: border-box;
+            height: 21px;
+            width: 21px;
+            border: 2px solid #BEC6C6;
+            @include rounded(2px);
+        }
+
+        label[for='promotions'] {
+            color: #1D2121;
+            font-size: 16px;
+            letter-spacing: -0.09px;
+            line-height: 22px;
+            vertical-align: top;
+            @include media(xs) {
+                font-size: 12px;
+            }
+        }
+    }
+}

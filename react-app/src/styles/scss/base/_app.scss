@@ -1,0 +1,78 @@
+@import '../components/mixins/mixins';
+
+#root {
+    width: 100%;
+}
+
+body {
+    display: grid;
+    height: 100vh;
+    grid-template-rows: auto 1fr;
+    row-gap: 10px;
+    margin: 0;
+    box-sizing: border-box;
+    background: #f2f4f8;
+    font-family: "Open Sans", sans-serif;
+
+    @include media(xs) {
+        display: flex;
+        width: 100vw;
+        max-width: 100vw;
+    }
+}
+
+header {
+    background: #fff;
+    height: 66px;
+    @include box-shadow(0 2px 2px 0 rgba(0, 0, 0, 0.18));
+    display: flex;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    display: grid;
+    grid-template-columns: 28.5% 1fr 26.5%;
+    z-index: 999;
+}
+
+main {
+    background: #f2f4f8;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    padding-top: 66px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.3);
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollba {
+    width: 5px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #000000;
+    border: 1px solid #555555;
+}
+
+app-modal ul {
+    padding: 2%;
+    margin: 9% 0;
+}
+
+app-alert {
+    @include media(xs) {
+        margin: 0 2%;
+    }
+}
+
+ul {
+    list-style: none;
+}
+
+.arrow-down {
+    vertical-align: super;
+}
