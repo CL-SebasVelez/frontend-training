@@ -26,10 +26,10 @@ const styles = {
 
 function NavbarComponent(props) {
   return (
-    <Navbar breakAt="lg" style={styles.navBar}>
-      <Navbar.Brand id="page-logo" style={styles.pageLogo}>
+    <Navbar breakAt="lg" id="navbar">
+      <Navbar.Brand id="page-logo">
         <h2 style={{ margin: 0 }}>
-          <a href="#foo">
+          <a href="/">
             <img
               src="/images/logo.svg"
               alt="News,The best news."
@@ -64,7 +64,7 @@ function NavbarComponent(props) {
         <a href="#foo">Editorial</a>
         <a href="#foo">Contact us</a>
       </Nav>
-      <Nav collapsible style={styles.userAvatar}>
+      <Nav collapsible id="user-avatar">
         <a href="#foo">
           <Avatar title="JS" />
         </a>
