@@ -25,6 +25,7 @@ function isNumeric(num) {
 /**
  * Show error message
  * @param {HTMLElement} target
+ * @param {string} type
  */
 function showError(target, type = "default") {
   const parent = target.closest('div');
@@ -43,6 +44,7 @@ function showError(target, type = "default") {
 /**
  * Hide error message
  * @param {HTMLElement} target
+ * @param {string} type
  */
 function hideError(target, type = "default") {
   const parent = target.closest('div');
