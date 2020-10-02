@@ -23,6 +23,11 @@ function isNumeric(num) {
 }
 
 
+/**
+ * Get data from values' param and to create an object with text and value
+ * @param {Object} labels
+ * @param {Object} values
+ */
 function formData(labels, values) {
     return Object.keys(labels).map((data) => {
         return {
@@ -32,6 +37,10 @@ function formData(labels, values) {
     });
 }
 
+/**
+ * Validate all fields from fields' param and to return an object with fields have errors
+ * @param {Object} fields
+ */
 function validateForm(fields) {
     let errors = {};
     Object.keys(fields.labels).map((field, key) => {

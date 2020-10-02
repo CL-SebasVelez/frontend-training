@@ -7,13 +7,13 @@ function NewsCard(props) {
   const open = props.url ? 'c-pointer' : '';
   return (
     <div
-      className={`card ${open}`}
+      className={`card ${open} mb-20`}
       onClick={() => (props.url ? handleClick(props.url) : void 0)}
     >
       <div className="card-image">
         <img src={props.image} alt="" />
       </div>
-      <div className="card-title">
+      <div className="card-title mt-5">
         <p>{props.title}</p>
       </div>
       <div className="card-content">

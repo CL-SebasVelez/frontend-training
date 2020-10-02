@@ -117,7 +117,7 @@ class ContactForm extends React.Component {
               }
             />
           </div>
-          <div className="form-group w-50">
+          <div className="form-group w-50 mt-2">
             <label htmlFor="email">Email</label>
             <input
               type="email"
@@ -134,7 +134,7 @@ class ContactForm extends React.Component {
               ''
             )}
           </div>
-          <div className="form-group w-50">
+          <div className="form-group w-50 mt-2">
             <label htmlFor="number">Phone number</label>
             <input
               type="number"
@@ -151,7 +151,7 @@ class ContactForm extends React.Component {
               ''
             )}
           </div>
-          <div className="form-group w-100">
+          <div className="form-group w-100 mt-3">
             <label htmlFor="message">Message</label>
             <TextField
               name="message"
@@ -165,7 +165,7 @@ class ContactForm extends React.Component {
             />
             <p className="d-none text-error">This field is required</p>
           </div>
-          <div className="form-group w-100 mt-5">
+          <div className="form-group w-100">
             <Checkbox
               name="promotions"
               label="Send me emails about breaking news and promotions."
@@ -173,9 +173,9 @@ class ContactForm extends React.Component {
               defaultChecked={false}
             />
           </div>
-          <div className="form-group w-100 mt-6 d-flex j-content-center">
+          <div className="form-group w-100 d-flex j-content-center">
             <Button
-              className="a-self-center mt-5 mb-10 btn btn-default"
+              className="a-self-center mt-5 btn btn-default"
               id="more-stories"
               color="info"
               type="submit"

@@ -6,24 +6,6 @@ import Navbar from 'emerald-ui/lib/Navbar';
 import DropdownItem from 'emerald-ui/lib/DropdownItem';
 import DropdownButton from 'emerald-ui/lib/DropdownButton';
 
-const styles = {
-  pageLogo: {
-    width: '27.5%',
-    display: 'flex',
-    justifyContent: 'flex-end',
-  },
-  userAvatar: {
-    width: '27.5%',
-    display: 'flex',
-    justifyContent: 'flex-start',
-  },
-  navBar: {
-    position: 'fixed',
-    top: 0,
-    width: '100%',
-  },
-};
-
 function NavbarComponent(props) {
   return (
     <Navbar breakAt="lg" id="navbar">
@@ -39,7 +21,7 @@ function NavbarComponent(props) {
         </h2>
       </Navbar.Brand>
       <Nav grow collapsible>
-        <DropdownButton title="Services" id="dd1">
+        <DropdownButton title="Sections" id="dd1">
           <DropdownItem eventKey="1">
             <Icon name="sports_basketball" />
             Sports

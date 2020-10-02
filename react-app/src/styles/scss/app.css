@@ -232,6 +232,14 @@ textarea {
           justify-content: center;
 }
 
+.mt-2 {
+  margin-top: 2%;
+}
+
+.mt-3 {
+  margin-top: 3%;
+}
+
 .mt-4 {
   margin-top: 4%;
 }
@@ -258,6 +266,10 @@ textarea {
 
 .mb-10 {
   margin-bottom: 10%;
+}
+
+.mb-20 {
+  margin-bottom: 20%;
 }
 
 .is-invalid {
@@ -319,91 +331,6 @@ textarea {
   position: fixed;
   top: 0;
   width: 100%;
-}
-
-#mobile-menu {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  background-color: #ffffffe6;
-  width: 100%;
-  height: 66px;
-  font-size: 20px;
-  cursor: pointer;
-  display: none;
-  -ms-grid-columns: (1fr)[4];
-      grid-template-columns: repeat(4, 1fr);
-  color: black;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  box-shadow: 0 -2px 2px 0 rgba(0, 0, 0, 0.18);
-  -moz-box-shadow: 0 -2px 2px 0 rgba(0, 0, 0, 0.18);
-  -webkit-box-shadow: 0 -2px 2px 0 rgba(0, 0, 0, 0.18);
-  -webkit-tap-highlight-color: transparent;
-  overflow: visible;
-  list-style: none;
-  margin: 0;
-}
-
-@media (max-width: 767px) {
-  #mobile-menu {
-    display: -ms-grid;
-    display: grid;
-  }
-}
-
-#mobile-menu li {
-  text-align: center;
-}
-
-#mobile-menu li a {
-  font-size: 20px;
-  text-decoration: none;
-  color: #FFF;
-  cursor: pointer;
-}
-
-#mobile-menu .m-menu {
-  position: absolute;
-  bottom: 102%;
-  background: #fff;
-  width: 30%;
-  right: 0px;
-  padding: 3%;
-  box-shadow: -3px -3px 2px 0 rgba(0, 0, 0, 0.18);
-  -moz-box-shadow: -3px -3px 2px 0 rgba(0, 0, 0, 0.18);
-  -webkit-box-shadow: -3px -3px 2px 0 rgba(0, 0, 0, 0.18);
-  border-top-left-radius: 10px;
-}
-
-#mobile-menu .m-menu li {
-  padding: 2%;
-  text-align: right;
-  margin-top: 10%;
-  border-bottom: 1px solid #00000024;
-}
-
-#mobile-menu .m-menu li a {
-  color: black;
-}
-
-#mobile-menu .nav-dropdown {
-  box-shadow: none;
-  -moz-box-shadow: none;
-  -webkit-box-shadow: none;
-  display: none;
-}
-
-#mobile-menu .nav-dropdown.sub-menu {
-  position: inherit;
-  display: block;
-  width: 100%;
-  padding: 0;
-}
-
-#mobile-menu .nav-dropdown.sub-menu li a {
-  font-size: 12px !important;
 }
 
 .card {
@@ -521,6 +448,11 @@ textarea {
   }
 }
 
+#news-container #news.news-loading {
+  -ms-grid-columns: 1fr !important;
+      grid-template-columns: 1fr !important;
+}
+
 #news-container .news-card {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 300px;
@@ -567,10 +499,6 @@ textarea {
 
 #contact-us #container-form form {
   padding: 46px 0 46px 29px;
-}
-
-#contact-us #container-form .form-group {
-  margin: 0 0 45px 0;
 }
 
 #contact-us #container-form input[type='checkbox'] {

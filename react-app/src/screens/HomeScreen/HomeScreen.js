@@ -7,15 +7,6 @@ import NewsCard from '../../components/NewsCard';
 import { getStories, dismissAlert } from './functions';
 import ContactForm from '../../components/ContactForm/ContactForm';
 
-const styles = {
-  news: {
-    gridTemplateColumns: 'repeat(auto-fill, minmax(403px, 1fr))',
-  },
-  newsLoading: {
-    gridTemplateColumns: '1fr',
-  },
-};
-
 function HomeScreen(props) {
   const [news, setNews] = useState([]);
   const [term] = useState('trending');
@@ -53,7 +44,7 @@ function HomeScreen(props) {
           )}
 
           <h1>Top news</h1>
-          <div id="news" style={loading ? styles.newsLoading : styles.news}>
+          <div id="news" className={`${loading ? 'news-loading' : ''}`}>
             {loading ? (
               <Spinner />
             ) : error ? (

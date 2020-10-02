@@ -29,6 +29,15 @@ async function getNews(term = 'trending', count = 4) {
         });
 }
 
+/**
+ * Get news from getNews function and set values.
+ * @param {function} setNews
+ * @param {function} setLoading
+ * @param {function} setCount
+ * @param {function} setError
+ * @param {string} term
+ * @param {int} count
+ */
 function getStories(setNews, setLoading, setCount, setError, term, count) {
     getNews(term, count)
         .then((data) => {
@@ -41,6 +50,10 @@ function getStories(setNews, setLoading, setCount, setError, term, count) {
         });
 }
 
+/**
+ * Save on localStorage the alert item for don't show again after.
+ * @param {function} setShowAlert
+ */
 function dismissAlert(setShowAlert) {
     localStorage.setItem('alert', "true");
     setShowAlert(false);

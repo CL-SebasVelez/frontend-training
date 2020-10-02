@@ -14,6 +14,7 @@
         letter-spacing: -0.16px;
         line-height: 41px;
         font-weight: 400;
+
         @include media(xs) {
             text-align: center;
         }
@@ -29,16 +30,20 @@
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(403px, 1fr));
         justify-items: center;
+
         @include media(xs) {
             width: max-content;
             max-height: none;
             align-self: center;
         }
+
+
     }
 
     .news-card {
         flex: 1 1 300px;
         margin-bottom: 114px;
+
         @include media(xs) {
             margin-bottom: 10%;
         }
