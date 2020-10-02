@@ -16,6 +16,7 @@
     cursor: pointer;
 }
 
+
 .btn-default {
     border: 1px solid #0073E9;
     background-color: #0073E9;
@@ -32,7 +33,7 @@
     background: transparent;
 }
 
-.form-group{
+.form-group {
     @include media(xs) {
         margin-right: 5%;
     }
@@ -59,6 +60,7 @@ input[type='number'] {
     width: 397px;
     border: 1px solid #D3DBE7;
     @include rounded(3px);
+
     @include media(xs) {
         width: 100%;
     }
@@ -71,6 +73,7 @@ textarea {
     width: 873px;
     border: 1px solid #D3DBE7;
     @include rounded(3px);
+
     @include media(xs) {
         width: 100%;
     }
@@ -86,6 +89,7 @@ textarea {
 
 .w-50 {
     width: 50%;
+
     @include media(xs) {
         width: 45%;
     }
@@ -144,8 +148,16 @@ textarea {
 }
 
 .text-error {
-    color: red !important;
+    color: #de350b !important;
+    font-size: 11px;
+    transform: translateZ(0) translateY(0);
+    opacity: 1;
+    will-change: transition;
+    transition: .2s ease-out;
+    margin-left: 16px;
+    margin-top: 5px;
+
     @include media(xs) {
-        font-size:10px;
+        font-size: 10px;
     }
 }

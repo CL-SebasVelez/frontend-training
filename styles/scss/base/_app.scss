@@ -39,20 +39,6 @@ main {
     padding-top: 66px;
 }
 
-::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.3);
-    background-color: #F5F5F5;
-}
-
-::-webkit-scrollba {
-    width: 5px;
-    background-color: #F5F5F5;
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: #000000;
-    border: 1px solid #555555;
-}
 
 app-modal ul {
     padding: 2%;

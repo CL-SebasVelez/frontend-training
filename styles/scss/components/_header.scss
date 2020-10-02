@@ -19,6 +19,9 @@ header {
             letter-spacing: -0.09px;
             line-height: 22px;
             width: max-content;
+            display: flex;
+            justify-content: center;
+            place-items: baseline;
         }
     }
 

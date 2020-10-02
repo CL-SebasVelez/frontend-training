@@ -40,6 +40,9 @@ class NewsCard extends HTMLElement {
                     line-height: 28px;
                     margin-bottom: 20px;
                     height: 84px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: initial;
                 }
                 .card-content{
                     color: #1D2121;
@@ -80,7 +83,9 @@ class NewsCard extends HTMLElement {
   attributeChangedCallback() {
     if (this.open) {
       this.onclick = function () {
-        const { url } = this.dataset;
+        const {
+          url
+        } = this.dataset;
         window.open(url, '_blank');
       };
       this.classList.add('c-pointer');
