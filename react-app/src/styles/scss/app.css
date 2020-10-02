@@ -269,7 +269,16 @@ textarea {
 }
 
 .text-error {
-  color: red !important;
+  color: #de350b !important;
+  font-size: 11px;
+  -webkit-transform: translateZ(0) translateY(0);
+          transform: translateZ(0) translateY(0);
+  opacity: 1;
+  will-change: transition;
+  -webkit-transition: .2s ease-out;
+  transition: .2s ease-out;
+  margin-left: 16px;
+  margin-top: 5px;
 }
 
 @media (max-width: 767px) {
@@ -278,124 +287,38 @@ textarea {
   }
 }
 
+.border-error {
+  border: 1px solid #de350b !important;
+}
+
 .text-white {
   color: #fff;
 }
 
-@media (max-width: 767px) {
-  header {
-    width: 100%;
-    -ms-grid-columns: (1fr)[2];
-        grid-template-columns: repeat(2, 1fr);
-  }
+#page-logo {
+  width: 27.5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
-header li {
-  float: left;
+#user-avatar {
+  width: 27.5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
-header li a {
-  display: block;
-  text-decoration: none;
-  padding: 22px 21px;
-  height: 22px;
-  color: #1d2121;
-  font-size: 16px;
-  letter-spacing: -0.09px;
-  line-height: 22px;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-}
-
-header .menu {
-  clear: none;
-  float: right;
-  max-height: none;
-  margin-right: 6%;
-}
-
-@media (max-width: 767px) {
-  header .menu {
-    display: none;
-  }
-}
-
-header .menu-icon {
-  display: none;
-}
-
-header .nav-dropdown {
-  position: absolute;
-  z-index: 1;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
-  -moz-box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
-  -webkit-box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
-  display: none;
-  background: white;
-}
-
-header .dropdown span {
-  line-height: 22px;
-  -webkit-writing-mode: vertical-lr;
-      -ms-writing-mode: tb-lr;
-          writing-mode: vertical-lr;
-}
-
-header .user-icon {
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-}
-
-@media (max-width: 767px) {
-  header .user-icon {
-    justify-self: flex-end;
-    margin-right: 10%;
-  }
-}
-
-header .user-info {
-  background: #9100ad;
-  border-radius: 100%;
-  height: 25px;
-  width: 25px;
-  color: #fff;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: -0.06px;
-  line-height: 15px;
-  padding: 4px 7px 6px 8px;
-}
-
-header ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  overflow: hidden;
-}
-
-header .logo {
-  display: block;
-  float: left;
-  font-size: 2em;
-  padding: 10px 20px;
-  text-decoration: none;
-  color: #fff;
-}
-
-header #page-logo {
-  width: 61px;
-  height: 43px;
-  margin: 11px 0;
-  justify-self: flex-end;
-}
-
-@media (max-width: 767px) {
-  header #page-logo {
-    justify-self: flex-start;
-    margin-left: 5%;
-  }
+#navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 #mobile-menu {

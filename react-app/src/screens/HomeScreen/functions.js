@@ -35,13 +35,18 @@ function getStories(setNews, setLoading, setCount, setError, term, count) {
             setNews(data);
             setLoading(false);
             setCount(count + 4);
-            console.log(count);
         })
         .catch((err) => {
             setError(true);
         });
 }
 
+function dismissAlert(setShowAlert) {
+    localStorage.setItem('alert', "true");
+    setShowAlert(false);
+}
+
 export {
-    getStories
+    getStories,
+    dismissAlert
 };

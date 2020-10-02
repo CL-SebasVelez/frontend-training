@@ -159,11 +159,22 @@ textarea {
 }
 
 .text-error {
-    color: red !important;
+    color: #de350b !important;
+    font-size: 11px;
+    transform: translateZ(0) translateY(0);
+    opacity: 1;
+    will-change: transition;
+    transition: .2s ease-out;
+    margin-left: 16px;
+    margin-top: 5px;
 
     @include media(xs) {
         font-size: 10px;
     }
+}
+
+.border-error {
+    border: 1px solid #de350b !important;
 }
 
 .text-white {
