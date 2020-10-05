@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal component should render with default props 1`] = `<div />`;
+
+exports[`Modal component should render without default props 1`] = `<div />`;
