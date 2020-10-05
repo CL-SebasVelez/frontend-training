@@ -36,12 +36,12 @@ class Alert extends HTMLElement {
                     cursor: pointer;
                     position: relative;
                     border: none;
+                    display:flex;
+                    justify-content:center;
+                    align-items: baseline;
                 }
                 #welcome-alert button span{
                     font-size: 17px;
-                    position: absolute;
-                    top: 1px;
-                    right: 5px;
                 }
                 @media (min-width: 320px) and (max-width: 480px) {
                     #welcome-alert{
