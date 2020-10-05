@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewsCard component should render with default props 1`] = `
+<div
+  className="card  mb-20"
+  onClick={[Function]}
+>
+  <div
+    className="card-image"
+  >
+    <img
+      alt=""
+      src="https://www.bnd.com/latest-news/ppc7fl/picture222958020/alternates/LANDSCAPE_768/NEWSnew.jpg"
+    />
+  </div>
+  <div
+    className="card-title mt-5"
+  >
+    <p>
+      News
+    </p>
+  </div>
+  <div
+    className="card-content"
+  >
+    <p>
+      
+    </p>
+  </div>
+</div>
+`;
+
+exports[`NewsCard component should render without default props 1`] = `
+<div
+  className="card  mb-20"
+  onClick={[Function]}
+>
+  <div
+    className="card-image"
+  >
+    <img
+      alt=""
+      src="https://www.bnd.com/latest-news/ppc7fl/picture222958020/alternates/LANDSCAPE_768/NEWSnew.jpg"
+    />
+  </div>
+  <div
+    className="card-title mt-5"
+  >
+    <p>
+      News
+    </p>
+  </div>
+  <div
+    className="card-content"
+  >
+    <p>
+      
+    </p>
+  </div>
+</div>
+`;

@@ -6,7 +6,7 @@ import Navbar from 'emerald-ui/lib/Navbar';
 import DropdownItem from 'emerald-ui/lib/DropdownItem';
 import DropdownButton from 'emerald-ui/lib/DropdownButton';
 
-function NavbarComponent(props) {
+function NavbarComponent() {
   return (
     <Navbar breakAt="lg" id="navbar">
       <Navbar.Brand id="page-logo">

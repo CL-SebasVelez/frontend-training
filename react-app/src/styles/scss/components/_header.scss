@@ -4,6 +4,10 @@
     width: 27.5%;
     display: flex;
     justify-content: flex-end;
+
+    @include media(xs) {
+        justify-content: flex-start;
+    }
 }
 
 #user-avatar {

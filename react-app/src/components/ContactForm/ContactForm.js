@@ -99,7 +99,7 @@ class ContactForm extends React.Component {
               name="firstName"
               className="form-control validate w-88"
               onChange={this.handleChange}
-              defaultValue={this.state.firstName}
+              value={this.state.firstName}
               errorMessage={
                 'firstName' in this.state.errors ? 'This field is required' : ''
               }
@@ -111,7 +111,7 @@ class ContactForm extends React.Component {
               name="lastName"
               className="form-control validate w-88"
               onChange={this.handleChange}
-              defaultValue={this.state.lastName}
+              value={this.state.lastName}
               errorMessage={
                 'lastName' in this.state.errors ? 'This field is required' : ''
               }
@@ -157,7 +157,7 @@ class ContactForm extends React.Component {
               name="message"
               className="form-control validate w-94"
               onChange={this.handleChange}
-              defaultValue={this.state.message}
+              value={this.state.message}
               textarea={true}
               errorMessage={
                 'message' in this.state.errors ? 'This field is required' : ''

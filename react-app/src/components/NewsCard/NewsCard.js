@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function NewsCard(props) {
   const handleClick = (url) => {
@@ -22,5 +23,19 @@ function NewsCard(props) {
     </div>
   );
 }
+
+NewsCard.propTypes = {
+  url: PropTypes.string,
+  image: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string,
+};
+
+NewsCard.defaultProps = {
+  image:
+    'https://www.bnd.com/latest-news/ppc7fl/picture222958020/alternates/LANDSCAPE_768/NEWSnew.jpg',
+  title: 'News',
+  description: '',
+};
 
 export default NewsCard;

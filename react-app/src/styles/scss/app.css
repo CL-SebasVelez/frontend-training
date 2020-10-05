@@ -317,6 +317,14 @@ textarea {
           justify-content: flex-end;
 }
 
+@media (max-width: 767px) {
+  #page-logo {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+}
+
 #user-avatar {
   width: 27.5%;
   display: -webkit-box;
