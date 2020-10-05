@@ -37,7 +37,9 @@
             align-self: center;
         }
 
-
+        &.news-loading {
+            grid-template-columns: 1fr !important;
+        }
     }
 
     .news-card {

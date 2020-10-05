@@ -1,0 +1,23 @@
+@import 'mixins/mixins';
+
+#page-logo {
+    width: 27.5%;
+    display: flex;
+    justify-content: flex-end;
+
+    @include media(xs) {
+        justify-content: flex-start;
+    }
+}
+
+#user-avatar {
+    width: 27.5%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+#navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
